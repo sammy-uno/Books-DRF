@@ -1,7 +1,7 @@
 from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination, CursorPagination
 
 
-class WatchListPagination(PageNumberPagination):
+class BookListPagination(PageNumberPagination):
     page_size = 3
     page_query_param = 'p'
     page_size_query_param = 'size'
@@ -9,14 +9,14 @@ class WatchListPagination(PageNumberPagination):
     last_page_strings = 'end'
 
 
-class WatchListLOPagination(LimitOffsetPagination):
+class BookListLOPagination(LimitOffsetPagination):
     default_limit = 5
     max_limit = 10
     limit_query_param = 'limit'
     offset_query_param = 'start'
 
 
-class WatchListCPagination(CursorPagination):
+class BookListCPagination(CursorPagination):
     page_size = 5
     ordering = 'created'
     cursor_query_param = 'record'
