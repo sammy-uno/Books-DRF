@@ -3,10 +3,9 @@ version: 0.2
 phases:
   install:
     commands:
+      - python -m venv book-api
+      - source book-api/bin/activate
       - pip install --upgrade pip
-      - pip install virtualenv 
-      - virtualenv venv
-      - source venv/bin/activate
       - pip install Django==4.2.7
       - pip install djangorestframework
       - pip install django-filter
@@ -14,7 +13,7 @@ phases:
       - pip install django-money
       - pip install markdown
       - pip install Pillow
-      - sudo dnf install mariadb105
+      - pip install mariadb105
 
   build:
     commands:
