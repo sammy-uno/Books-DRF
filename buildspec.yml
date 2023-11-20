@@ -14,8 +14,8 @@ phases:
       - pip install markdown
       - pip install Pillow
       - yum -y install pkgconfig
-      - export MYSQLCLIENT_CFLAGS='pkg-config mysqlclient --cflags'
-      - export MYSQLCLIENT_LDFLAGS='pkg-config mysqlclient --libs'
+      #- export MYSQLCLIENT_CFLAGS='pkg-config mysqlclient --cflags'
+      #- export MYSQLCLIENT_LDFLAGS='pkg-config mysqlclient --libs'
       - pip install mysqlclient --no-cache-dir
       #- yum -y install mariadb
 
