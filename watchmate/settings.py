@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'watchmate.wsgi.application'
 DATABASES = {
     'default': {
         # MySQL engine. Powered by the mysqlclient module.
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': 'books',
         'USER': 'admin',
         'PASSWORD': 'Password$12',
