@@ -3,6 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
+      - pip install --upgrade pip
       - pip install virtualenv 
       - virtualenv venv
       - source venv/bin/activate
@@ -11,9 +12,10 @@ phases:
       - pip install django-filter
       - pip install djangorestframework_simplejwt
       - pip install django-money
-      - dnf install mariadb105
       - pip install markdown
       - pip install Pillow
+      - sudo dnf install mariadb105
+
   build:
     commands:
       - mysql -h awseb-e-9pptrakwcu-stack-awsebrdsdatabase-vtikaiumckau.c5ktsotgokwo.us-east-2.rds.amazonaws.com -P 3306 -u admin -p Password$12 -e 'drop database books; create database books;'
