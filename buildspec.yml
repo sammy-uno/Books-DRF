@@ -13,7 +13,7 @@ phases:
       - pip install django-money
       - pip install markdown
       - pip install Pillow
-      - sudo yum install mariadb
+      - yum install mariadb
 
   build:
     commands:
