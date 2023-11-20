@@ -14,7 +14,7 @@ phases:
       - pip install markdown
       - pip install Pillow
       #yum -y install mariadb
-      - pip install mysqlclient
+      - apt-get install python-mysqldb
 
   build:
     commands:
