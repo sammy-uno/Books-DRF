@@ -1,0 +1,21 @@
+version: 0.2
+phases:
+  build:
+    commands:
+	  - sudo pip install Django==4.2.7
+	  - sudo pip install djangorestframework
+	  - sudo pip install django-filter
+	  - sudo pip install djangorestframework_simplejwt
+	  - sudo pip install django-money
+	  - sudo pip install mysqlclient
+	  - sudo pip install markdown
+	  - sudo pip install Pillow
+  post_build:
+    commands:	  
+	  - mysql -h awseb-e-9pptrakwcu-stack-awsebrdsdatabase-vtikaiumckau.c5ktsotgokwo.us-east-2.rds.amazonaws.com -P 3306 -u admin -p Password$12 -e 'drop database books; create database books;'
+      - sudo export DJANGO_SUPERUSER_USERNAME=admin
+	  - sudo export DJANGO_SUPERUSER_EMAIL=mfriha@hotmail.com
+	  - sudo export DJANGO_SUPERUSER_PASSWORD=Password$12
+	  - sudo python manage.py createsuperuser --no-input
+	  - sudo python manage.py makemigrations
+	  - sudo python manage.py migrate
