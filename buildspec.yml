@@ -3,6 +3,9 @@ version: 0.2
 phases:
   install:
     commands:
+      - sudo pip install virtualenv 
+      - sudo virtualenv venv
+      - sudo source venv/bin/activate
       - sudo pip install Django==4.2.7
       - sudo pip install djangorestframework
       - sudo pip install django-filter
