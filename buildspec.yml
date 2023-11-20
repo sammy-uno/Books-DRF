@@ -13,7 +13,8 @@ phases:
       - pip install django-money
       - pip install markdown
       - pip install Pillow
-      - yum -y install mariadb
+      #yum -y install mariadb
+      - pip install mysqlclient
 
   build:
     commands:
