@@ -11,7 +11,7 @@ phases:
       - pip install django-filter
       - pip install djangorestframework_simplejwt
       - pip install django-money
-      - sudo dnf install mariadb105
+      - dnf install mariadb105
       - pip install markdown
       - pip install Pillow
   build:
