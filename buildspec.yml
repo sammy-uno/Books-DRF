@@ -17,7 +17,7 @@ phases:
 
   build:
     commands:
-      - mysql -h awseb-e-9pptrakwcu-stack-awsebrdsdatabase-vtikaiumckau.c5ktsotgokwo.us-east-2.rds.amazonaws.com -P 3306 -u admin -p Password$12 -e 'drop database books; create database books;'
+      - mysql -h awseb-e-9pptrakwcu-stack-awsebrdsdatabase-vtikaiumckau.c5ktsotgokwo.us-east-2.rds.amazonaws.com -P 3306 -u admin -ppassword Password$12 -e 'drop database books; create database books;'
       - export DJANGO_SUPERUSER_USERNAME=admin
       - export DJANGO_SUPERUSER_EMAIL=mfriha@hotmail.com
       - export DJANGO_SUPERUSER_PASSWORD=Password$12
