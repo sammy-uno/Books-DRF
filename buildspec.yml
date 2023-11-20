@@ -13,6 +13,7 @@ phases:
       - pip install django-money
       - pip install markdown
       - pip install Pillow
+      - pip install wheel
       - pip install mysqlclient
 
   build:
