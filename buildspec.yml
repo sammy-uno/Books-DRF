@@ -13,7 +13,7 @@ phases:
       - pip install django-money
       - pip install markdown
       - pip install Pillow
-      - pip install mariadb105
+      - pip install mysqlclient
 
   build:
     commands:
