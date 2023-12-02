@@ -109,7 +109,7 @@ DATABASES = {
         'USER': 'admin',
         'PASSWORD': 'Password$12',
         #'HOST': 'localhost',
-        'HOST': 'books.c5ktsotgokwo.us-east-2.rds.amazonaws.com'
+        'HOST': 'books.c5ktsotgokwo.us-east-2.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
