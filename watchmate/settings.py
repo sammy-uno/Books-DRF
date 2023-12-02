@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 from pathlib import Path
+from environ import Env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$*(4s7evu!!i0=3o#g1gqyf^60vqpveyw)e=+y%k(k51qe*+z('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#Env.read_env()
 
-ALLOWED_HOSTS = []
+#environ.Env.read_env()
+#env.read_env()
+env = Env() 
+env.read_env()
+
+DEBUG = env.bool("API_DEBUG", default=True)
+
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -41,7 +49,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
-    'djmoney'
+    'djmoney',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +61,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+     "http://localhost:4200",
 ]
 
 ROOT_URLCONF = 'watchmate.urls'
@@ -90,9 +105,9 @@ DATABASES = {
         # MySQL engine. Powered by the mysqlclient module.
         'ENGINE': 'mysql.connector.django',
         'NAME': 'books',
-        'USER': 'admin',
+        'USER': 'root',
         'PASSWORD': 'Password$12',
-        'HOST': 'books.c5ktsotgokwo.us-east-2.rds.amazonaws.com',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
@@ -142,6 +157,16 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+if DEBUG:
+    DEFAULT_RENDERER_CLASSES = (
+        "rest_framework.renderers.JSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
+    )
+else:
+    DEFAULT_RENDERER_CLASSES = (
+        "rest_framework.renderers.JSONRenderer",
+    )
+
 REST_FRAMEWORK = {
 
     # 'DEFAULT_PERMISSION_CLASSES': [
@@ -170,10 +195,7 @@ REST_FRAMEWORK = {
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     # 'PAGE_SIZE': 5,
 
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    ),
+    'DEFAULT_RENDERER_CLASSES': DEFAULT_RENDERER_CLASSES,
 }
 
 # SIMPLE_JWT = {
