@@ -105,9 +105,11 @@ DATABASES = {
         # MySQL engine. Powered by the mysqlclient module.
         'ENGINE': 'mysql.connector.django',
         'NAME': 'books',
-        'USER': 'root',
+        #'USER': 'root',
+        'USER': 'admin',
         'PASSWORD': 'Password$12',
-        'HOST': 'localhost',
+        #'HOST': 'localhost',
+        'HOST': 'books.c5ktsotgokwo.us-east-2.rds.amazonaws.com'
         'PORT': '3306',
     }
 }
