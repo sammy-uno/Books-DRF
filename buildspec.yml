@@ -23,6 +23,7 @@ phases:
 
   build:
     commands:
+      #- cp 
       #mysql -h books.c5ktsotgokwo.us-east-2.rds.amazonaws.com -P 3306 -u admin -ppassword Password$12
       
       # sudo dnf install mariadb105
@@ -51,7 +52,15 @@ phases:
       #  http://ec2-3-16-113-191.us-east-2.compute.amazonaws.com:8000/api/books
       #  http://ec2-3-16-113-191.us-east-2.compute.amazonaws.com:8000/api/books/3
       #  http://ec2-3-16-113-191.us-east-2.compute.amazonaws.com:8000/api/books/3/reviews
-      
+
+artifacts:
+  files:
+    #- 'target/bookstore'
+    - 'appspec.ymml' 
+    - 'scripts/before_install.sh'
+    - 'scripts/after_install.sh'
+    - 'scripts/start_server.sh'
+    - 'scripts/stop_server.sh'    
      
       
       
