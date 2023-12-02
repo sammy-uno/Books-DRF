@@ -1,3 +1,5 @@
 #!/bin/bash
-rm -rf /home/ec2-user/Books-DRF
+cd /home/ec2-user
+mkdir -p Books-DRF
+rm -rf Books-DRF
 

@@ -4,9 +4,9 @@ os: linux
 
 files:
 
-  - source: target/*
+  - source: **/*
 
-    destination: /home/ec2-user
+    destination: /home/ec2-user/Books-DRF
 
 hooks:
 
