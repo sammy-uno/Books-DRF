@@ -1,7 +1,7 @@
 #!/bin/bash
+cd /home/ec2-user
 source book-api/bin/activate
-cd /home/ec2-user/Books-RDF
+cd Books-RDF
 export API_DEBUG=False
 ./startServer.sh &> Books-DRF.log &
-echo "Hello"
-echo (ps -ef | grep waitres)
+ps -ef | grep waitress
