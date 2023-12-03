@@ -15,8 +15,8 @@ class BookListSerializer(serializers.ModelSerializer):
     reviews = ReviewSerializer(many=True, read_only=True)
     # platform = serializers.CharField(source='platform.name')
     
-    #avg_rating = serializers.ReadOnlyField
-    #number_rating = serializers.ReadOnlyField
+    avg_rating = serializers.ReadOnlyField
+    number_rating = serializers.ReadOnlyField
 
     class Meta:
         model = Book

@@ -119,11 +119,11 @@ DATABASES = {
         # MySQL engine. Powered by the mysqlclient module.
         'ENGINE': 'mysql.connector.django',
         'NAME': 'books',
-        #'USER': 'root',
-        'USER': 'admin',
+        'USER': 'root',
+        #'USER': 'admin',
         'PASSWORD': 'Password$12',
-        #'HOST': 'localhost',
-        'HOST': 'books.c5ktsotgokwo.us-east-2.rds.amazonaws.com',
+        'HOST': 'localhost',
+        #'HOST': 'books.c5ktsotgokwo.us-east-2.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
@@ -200,13 +200,13 @@ REST_FRAMEWORK = {
     #     'rest_framework.throttling.UserRateThrottle'
     # ],
 
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '100/day',
-        'user': '100/day',
-        'review-create': '2/day',
-        'review-list': '100/day',
-        'review-detail': '100/day',
-    },
+    #'DEFAULT_THROTTLE_RATES': {
+    #    'anon': '100/day',
+    #    'user': '100/day',
+    #    'review-create': '2/day',
+    #    'review-list': '100/day',
+    #    'review-detail': '100/day',
+    #},
 
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     # 'PAGE_SIZE': 5,

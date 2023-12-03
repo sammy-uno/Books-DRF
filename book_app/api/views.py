@@ -23,7 +23,7 @@ class UserReview(generics.ListAPIView):
 class ReviewCreate(generics.CreateAPIView):
     serializer_class = serializers.ReviewSerializer
     permission_classes = [IsAuthenticated]
-    throttle_classes = [throttling.ReviewCreateThrottle]
+    #throttle_classes = [throttling.ReviewCreateThrottle]
 
     def get_queryset(self):
         return Review.objects.all()
@@ -44,6 +44,7 @@ class ReviewCreate(generics.CreateAPIView):
             book.avg_rating = (book.avg_rating + serializer.validated_data['rating'])/2
 
         book.number_rating = book.number_rating + 1
+        #print("number_rating " + str(book.number_rating))
         book.save()
 
         serializer.save(book=book, review_user=review_user)
@@ -51,7 +52,7 @@ class ReviewCreate(generics.CreateAPIView):
 
 class ReviewList(generics.ListAPIView):
     serializer_class = serializers.ReviewSerializer
-    throttle_classes = [throttling.ReviewListThrottle, AnonRateThrottle]
+    #throttle_classes = [throttling.ReviewListThrottle, AnonRateThrottle]
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['review_user__username', 'active']
 
@@ -77,7 +78,7 @@ class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class BookListAV(APIView):
     permission_classes = [permissions.IsAdminOrReadOnly]
-    throttle_classes = [AnonRateThrottle]
+    #throttle_classes = [AnonRateThrottle]
 
     def get(self, request):
         books = Book.objects.all()
@@ -95,7 +96,7 @@ class BookListAV(APIView):
 
 class BookDetailAV(APIView):
     permission_classes = [permissions.IsAdminOrReadOnly]
-    throttle_classes = [AnonRateThrottle]
+    #throttle_classes = [AnonRateThrottle]
 
     def get(self, request, pk):
         try:
