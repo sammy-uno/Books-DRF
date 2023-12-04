@@ -23,8 +23,8 @@ class Book(models.Model):
     author = models.CharField(max_length=200)
     # platform = models.ForeignKey(StreamPlatform, on_delete=models.CASCADE, related_name="watchlist")
     # active = models.BooleanField(default=True)
-    avg_rating = models.FloatField(default=0, editable=False)
-    number_rating = models.IntegerField(default=0, editable=False)
+    avg_rating = models.FloatField(default=0)
+    number_rating = models.IntegerField(default=0)
     # created = models.DateTimeField(auto_now_add=True)
     
     #image = models.ImageField(upload_to='book_images/', null=True)
